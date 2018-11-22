@@ -275,6 +275,7 @@ $.fn.repeater = function (fig) {
         });
 
         $list.on('click', '[data-repeater-delete]', function () {
+            event.stopPropagation(); // added for delete nested deeper item 
             var self = $(this).closest('[data-repeater-item]').get(0);
             hide.call(self, function () {
                 $(self).remove();
